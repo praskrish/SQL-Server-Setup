@@ -6,4 +6,7 @@
         name: mssql-server
         state: stopped
         enabled: no
+    
+    - name: Ansible delete msql files
+      shell: rm -rf /var/opt/mssql/
 
