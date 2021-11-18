@@ -16,6 +16,6 @@
         state: absent
         
     - name: Ansible delete mssql files
-      shell: rm -rf /var/opt/mssql/
+      file: path="/var/opt/mssql/" state=absent
         
 
