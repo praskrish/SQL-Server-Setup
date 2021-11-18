@@ -10,11 +10,6 @@
         name: mssql-server
         state: stopped
     
-   --- - name: stop ms sql server
-   ---   systemd:
-   ---     name: mssql-server
-   ---     state: stopped
-        
     - name:
       yum:
         name: mssql-server
