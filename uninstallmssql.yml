@@ -1,10 +1,19 @@
 ---
 - hosts: all
   tasks:
-    - name: stop ms sql server
-      systemd:
+    - name: Stop service
+      register: service_stop
+      failed_when: 
+        - '"Could not find the requested service" not in service_stop.stdout'
+        - service_stop.rc != 0
+      service:
         name: mssql-server
         state: stopped
+    
+   --- - name: stop ms sql server
+   ---   systemd:
+   ---     name: mssql-server
+   ---     state: stopped
         
     - name:
       yum:
