@@ -1,19 +1,17 @@
 ---
 - hosts: localhost
   become: yes
-- name: stop ms sql server
-  systemd:
-    name: mssqlserver
-    state: stopped
-    enabled: no
-  become: yes
-  become_user: root
-  
-- name:
-  yum:
-    name: 
-      - mssql-server
-    state: absent
+  tasks:
+    - name: stop ms sql server
+      systemd:
+        name: mssqlserver
+        state: stopped
+        enabled: no
+        
+    - name:
+      yum:
+        name: mssql-server
+        state: absent
     
-- name: Ansible delete file wildcard example
-  shell: rm -rf /var/opt/mssql/
+    - name: Ansible delete file wildcard example
+      shell: rm -rf /var/opt/mssql/
