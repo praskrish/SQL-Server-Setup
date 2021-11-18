@@ -12,4 +12,7 @@
         name: mssql-server
         state: absent
         
+    - name: Ansible delete mssql files
+      shell: rm -rf /var/opt/mssql/
+        
 
