@@ -9,6 +9,6 @@
     mssql_install_fts: true
     mssql_install_powershell: true
     mssql_tune_for_fua_storage: true
-    mssql_input_sql_file: /home/ec2-user/sql_script.sql
+    mssql_input_sql_file: sql_script.sql
   roles:
     - microsoft.sql.server
