@@ -1,21 +1,28 @@
 ---
 - hosts: all
   tasks:
-    - name: Check if Service Exists
-      stat: path=/etc/init.d/mssql-server
-      register: service_status
+    - name: Stop any existing running SQL Server service
+      service:
+        name: mssql-server
+        state: stopped
+      ignore_errors: yes
 
-    - name: Stop Service
-      service: name={{service_name}} state=stopped
-      when: service_status.stat.exists
-      register: service_stopped
-    
-    - name:
+    - name: Uninstall Microsoft SQL Server package
       yum:
         name: mssql-server
         state: absent
-        
-    - name: Ansible delete mssql files
-      file: path="/var/opt/mssql/" state=absent
+        register: uninstall
+      ignore_errors: yes
+
+
+    - name: Uinstall SQL Server client tools
+      yum:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - mssql-tools
+        - unixODBC-devel
+       environment:
+         - ACCEPT_EULA: Y
         
 
