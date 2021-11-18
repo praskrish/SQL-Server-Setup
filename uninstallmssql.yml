@@ -11,9 +11,6 @@
       yum:
         name: mssql-server
         state: absent
-        register: uninstall
-      ignore_errors: yes
-
 
     - name: Uinstall SQL Server client tools
       yum:
