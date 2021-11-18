@@ -11,12 +11,4 @@
         login_user: "{{ db_user }}"
         login_password: "{{ db_password }}"
     
-    - name: Import SQL File
-      mssql_db:
-        name: "{{ db_name }}"
-        state: import
-        target: "{{ playbook_dir }}/test.sql"
-        login_host: "{{ db_host }}"
-        login_port: "{{ db_port }}"
-        login_user: "{{ db_user }}"
-        login_password: "{{ db_password }}"
+  
