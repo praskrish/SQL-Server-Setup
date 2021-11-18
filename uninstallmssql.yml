@@ -3,7 +3,7 @@
   tasks:
     - name: stop ms sql server
       systemd:
-        name: mssqlserver
+        name: mssql-server
         state: stopped
         enabled: no
 
