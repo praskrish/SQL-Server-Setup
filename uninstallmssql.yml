@@ -22,7 +22,7 @@
       loop:
         - mssql-tools
         - unixODBC-devel
-       environment:
-         - ACCEPT_EULA: Y
+      environment:
+        - ACCEPT_EULA: Y
         
 
